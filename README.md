@@ -2,7 +2,7 @@
 
 Full Stack Amazon Clone along with Admin Panel (node.js)
 
-Features
+# Features
 
 Email & Password Authentication
 
