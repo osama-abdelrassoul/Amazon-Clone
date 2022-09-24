@@ -1,4 +1,4 @@
-# amazon_cloneCancel changes
+# amazon_clone
 
 Full Stack Amazon Clone along with Admin Panel (node.js)
 
