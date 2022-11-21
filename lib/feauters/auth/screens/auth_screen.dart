@@ -48,7 +48,6 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: GlobalVariables.greyBackgroundCOlor,
       body: SafeArea(
@@ -105,6 +104,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                         CustomTextFeild(
                           controller: _passwordController,
+                          obsecure: true,
                           hintText: "Password",
                         ),
                         const SizedBox(
@@ -159,6 +159,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                         CustomTextFeild(
                           controller: _passwordController,
+                          obsecure: true,
                           hintText: "Password",
                         ),
                         const SizedBox(

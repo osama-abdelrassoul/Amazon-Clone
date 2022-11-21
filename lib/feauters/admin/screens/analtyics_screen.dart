@@ -1,3 +1,5 @@
+import 'package:amazon_clone/feauters/account/services/account_services.dart';
+import 'package:amazon_clone/feauters/account/widgets/account_button.dart';
 import 'package:amazon_clone/feauters/admin/models/sales.dart';
 import 'package:amazon_clone/feauters/admin/services/admin_services.dart';
 import 'package:amazon_clone/common/widgets/loader.dart';
@@ -37,25 +39,37 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
     return earnings == null || totalSales == null
         ? const Loader()
         : Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                '\$$totalSales',
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+              Column(
+                children: [
+                  Text(
+                    '\$$totalSales',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: screenSize.height * 0.25,
+                    child: CategoryProductsChart(seriesList: [
+                      charts.Series(
+                        id: 'Sales',
+                        data: earnings!,
+                        domainFn: (Sales sales, _) => sales.label,
+                        measureFn: (Sales sales, _) => sales.earning,
+                      ),
+                    ]),
+                  ),
+                ],
               ),
               SizedBox(
-                height: screenSize.height * 0.25,
-                child: CategoryProductsChart(seriesList: [
-                  charts.Series(
-                    id: 'Sales',
-                    data: earnings!,
-                    domainFn: (Sales sales, _) => sales.label,
-                    measureFn: (Sales sales, _) => sales.earning,
-                  ),
-                ]),
-              )
+                width: 150,
+                height: 50,
+                child: AccountButton(
+                    text: 'Log Out',
+                    onTap: () => AccountServices().logOut(context)),
+              ),
             ],
           );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-String uri = "http://192.168.1.2:3000";
+String uri = "https://amazon-clone-nu-nine.vercel.app";
 
 class GlobalVariables {
   static const appBarGradient = LinearGradient(
